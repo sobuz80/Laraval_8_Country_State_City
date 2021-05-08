@@ -1,12 +1,15 @@
 Step 3 – Create Country State City Migration and Model File
 
 php artisan make:model Country
+</br>
 php artisan make:model State
+</br>
 php artisan make:model City
 
 
 php artisan make:migration create_country_state_city_tables
-
+</br>
+</br>
 
 <?php
 use Illuminate\Database\Schema\Blueprint;
@@ -40,19 +43,21 @@ class CreateCountryStateCityTables extends Migration
        Schema::drop('cities');
     }
 }
-
+</br>
 Then, run the following command on command prompt:
-
+</br>
 php artisan migrate
 
 Step 4 – Add Routes For Country State City
-
+</br>
 	
 use App\Http\Controllers\CountryStateCityController;
  
- 
+ </br>
 Route::get('country-state-city', [CountryStateCityController::class, 'index']);
+</br>
 Route::post('get-states-by-country', [CountryStateCityController::class, 'getState']);
+</br>
 Route::post('get-cities-by-state', [CountryStateCityController::class, 'getCity']);
 
 
