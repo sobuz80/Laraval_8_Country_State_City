@@ -2,4 +2,3 @@ php artisan make:model Item
 php artisan make:controller SearchController
 php artisan serve
 
-https://www.itsolutionstuff.com/post/laravel-8-clear-cache-of-route-view-config-command-exampleexample.html

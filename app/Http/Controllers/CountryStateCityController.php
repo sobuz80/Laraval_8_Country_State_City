@@ -4,27 +4,24 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use Validator,Redirect,Response;
-use App\Models\{Country,State,City};
+use App\Models\{Category,Subcategories};
  
 class CountryStateCityController extends Controller
 {
  
-    public function index()
+    public function categories()
     {
-        $data['countries'] = Country::get(["name","id"]);
-        return view('country-state-city',$data);
+        $data['categories'] = Category::get(["title","id"]);
+        return view('categories_subcategories',$data);
     }
-    public function getState(Request $request)
+	
+	
+    public function subcategories(Request $request)
     {
-        $data['states'] = State::where("country_id",$request->country_id)
-                    ->get(["name","id"]);
+        $data['subcategories'] = Subcategories::where("cat_id",$request->cat_id)
+                    ->get(["title","id"]);
         return response()->json($data);
     }
-    public function getCity(Request $request)
-    {
-        $data['cities'] = City::where("state_id",$request->state_id)
-                    ->get(["name","id"]);
-        return response()->json($data);
-    }
- 
+	
+	
 }
